@@ -15,5 +15,28 @@ NOTES: Don't create new array, try to change the input array.
 
 void * removeArrayDuplicates(int *Arr, int len)
 {
-	return NULL;
+	if (len <= 0)
+		return NULL;
+	if (Arr == NULL)
+		return NULL;
+	int iterator, iterator1, NewLength = 1;
+	for (iterator = 1; iterator < len; iterator++)
+	{
+
+		for (iterator1 = 0; iterator1 < NewLength; iterator1++)
+		{
+
+			if (*(Arr + iterator) == *(Arr + iterator1))
+				break;
+		}
+
+		/* if none of the values in index[0..j] of array is not same as array[i],
+		then copy the current value to corresponding new position in array */
+
+		if (iterator1 == NewLength)
+		{
+			*(Arr + NewLength) = *(Arr + iterator);
+			NewLength++;
+		}
+	}
 }
